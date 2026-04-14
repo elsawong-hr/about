@@ -129,9 +129,9 @@
   </div>
 
   <div class="nav-strip">
-    <button class="nav-btn active" onclick="showSection('work', this)">Case Studies</button>
-    <button class="nav-btn" onclick="showSection('skills', this)">Technical Skills</button>
-    <button class="nav-btn" onclick="showSection('about', this)">About</button>
+    <button class="nav-btn active" id="btn-work" onclick="showSection('work')">Case Studies</button>
+    <button class="nav-btn" id="btn-skills" onclick="showSection('skills')">Technical Skills</button>
+    <button class="nav-btn" id="btn-about" onclick="showSection('about')">About</button>
   </div>
 
   <!-- CASE STUDIES -->
@@ -420,11 +420,11 @@
 
 </div>
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  function showSection(id, btn) {
+  function showSection(id) {
     document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
     document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
     document.getElementById('sec-' + id).classList.add('visible');
-    btn.classList.add('active');
+    document.getElementById('btn-' + id).classList.add('active');
   }
   function toggleDetail(id) {
     const panel = document.getElementById(id);
@@ -432,4 +432,3 @@
     document.querySelectorAll('.detail-panel').forEach(p => p.classList.remove('open'));
     if (!isOpen) {
       panel.classList.add('open');
-    
